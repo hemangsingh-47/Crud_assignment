@@ -6,7 +6,7 @@ A robust RESTful API built with Node.js, Express, and MongoDB for managing notes
 
 - **Postman Documentation**: [View API Docs](https://documenter.getpostman.com/view/50840788/2sBXqDsNvs)
 - **GitHub Repository**: [View Source Code](https://github.com/hemangsingh-47/Crud_assignment)
-
+ **Api_live**:https://crud-assignment-3tk0.onrender.com/api/notes
 ## 🛠️ Technology Stack
 
 - **Backend**: Node.js, Express.js
