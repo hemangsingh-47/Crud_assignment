@@ -119,9 +119,51 @@ const getNoteById = async (req, res) => {
   }
 };
 
+// PUT (FULL REPLACE)
+const updateNote = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!isValidObjectId(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid note ID",
+        data: null
+      });
+    }
+
+    const updatedNote = await Note.findByIdAndUpdate(
+      id,
+      req.body,
+      { new: true, overwrite: true, runValidators: true }
+    );
+
+    if (!updatedNote) {
+      return res.status(404).json({
+        success: false,
+        message: "Note not found",
+        data: null
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Note replaced successfully",
+      data: updatedNote
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      data: null
+    });
+  }
+};
+
 module.exports = {
   createNote,
   createBulkNotes,
   getAllNotes,
-  getNoteById
+  getNoteById,
+  updateNote
 };

@@ -3,7 +3,8 @@ const {
   createNote, 
   createBulkNotes, 
   getAllNotes, 
-  getNoteById 
+  getNoteById,
+  updateNote 
 } = require("../controllers/note.controller");
 
 const router = express.Router();
@@ -13,5 +14,7 @@ router.post("/bulk", createBulkNotes);
 
 router.get("/", getAllNotes);
 router.get("/:id", getNoteById);
+
+router.put("/:id", updateNote);
 
 module.exports = router;
