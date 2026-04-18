@@ -4,7 +4,8 @@ const {
   createBulkNotes, 
   getAllNotes, 
   getNoteById,
-  updateNote 
+  updateNote,
+  patchNote 
 } = require("../controllers/note.controller");
 
 const router = express.Router();
@@ -16,5 +17,6 @@ router.get("/", getAllNotes);
 router.get("/:id", getNoteById);
 
 router.put("/:id", updateNote);
+router.patch("/:id", patchNote);
 
 module.exports = router;
